@@ -6,9 +6,11 @@ export default function Signup() {
     const fd = new FormData(event.target);
     // const enteredEmail = fd.get('email');// will have too many variables
     const data = Object.fromEntries(fd.entries());
-    console.log(data);
     const acquisitionChannel = fd.getAll("acquisition");
     data.acquisition = acquisitionChannel;
+    console.log(data);
+
+    event.target.reset();//perfer this than manually reset values
   }
 
   return (
