@@ -12,7 +12,6 @@ export default function Login() {
 
     console.log(enteredEmail, enteredPassword);
 
-    enter
   }
 
   return (
