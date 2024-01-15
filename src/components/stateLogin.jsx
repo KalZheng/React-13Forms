@@ -8,6 +8,9 @@ export default function Login() {
     password: "",
   });
 
+  const emailIsInvalid =
+    enteredValues.email !== "" && !enteredValues.email.includes("@");
+
   function handleInputChange(identifier, value) {
     setEnteredValues((prevValues) => ({
       ...prevValues,
@@ -46,9 +49,13 @@ export default function Login() {
             id="email"
             type="email"
             name="email"
+            // onBlur={handleInputBlur}
             onChange={(event) => handleInputChange("email", event.target.value)}
             value={enteredValues.email}
           />
+          <div className="control-error">
+            {emailIsInvalid && <p>please enter a valid email address.</p>}
+          </div>
         </div>
 
         <div className="control no-margin">
@@ -57,6 +64,7 @@ export default function Login() {
             id="password"
             type="password"
             name="password"
+            // onBlur={handleInputBlur}
             onChange={(event) =>
               handleInputChange("password", event.target.value)
             }
